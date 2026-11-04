@@ -62,6 +62,7 @@ a{color:inherit}
 .rond.est-ici .cercle{background:var(--aqua);border-color:var(--sarcelle);color:var(--sarcelle)}
 .rond.est-ici small{display:none}
 .rond.est-ici .ici{display:inline}
+.acces{margin:-6px 0 0;text-align:center;font-size:14px;color:var(--texte-2)}
 .preuves{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;margin:0;padding:0;list-style:none;color:var(--texte-2);font-size:14px;font-weight:600}
 .preuves li::before{content:"✓ ";color:var(--sarcelle)}
 
@@ -123,8 +124,8 @@ main{display:flex;flex-direction:column;gap:28px}
 
 <main class="col">
   <section class="hero" id="haut" aria-labelledby="titre">
-    <h1 class="titre" id="titre"><span data-i="titreA">Trouvez</span> <em data-i="titreB">les études qui vous ressemblent</em><span data-i="titreC">, en France et en Europe.</span></h1>
-    <p class="sous-titre" data-i="sousTitre">Un test de 10 minutes, puis vos écoles classées selon vos réponses, avec leurs dates limites.</p>
+    <h1 class="titre" id="titre"><span data-i="titreA">Vos écoles en Europe,</span> <em data-i="titreB">classées pour vous</em><span data-i="titreC"> en 10 minutes.</span></h1>
+    <p class="sous-titre" data-i="sousTitre">Répondez à quelques questions : Kursiko classe les formations selon vos réponses et vous donne leurs dates limites.</p>
     <nav class="reseaux" aria-labelledby="h-reseaux">
       <h2 id="h-reseaux" data-i="hReseaux">Suivez Kursiko</h2>
       <ul class="ronds" id="reseaux">
@@ -139,7 +140,8 @@ main{display:flex;flex-direction:column;gap:28px}
           <b>YouTube</b><small>@kursiko</small><span class="ici" data-i="ici">Vous y êtes</span></a></li>
       </ul>
     </nav>
-    <a class="bouton" id="cta" data-track href="https://kursiko.com/test" data-i="cta">Faire le test</a>
+    <a class="bouton" id="cta" data-track href="https://kursiko.com/test" data-i="cta">Faire mon test gratuit →</a>
+    <p class="acces" data-i="acces">10 minutes · Accès par code, envoyé par e-mail</p>
     <ul class="preuves">
       <li data-i="p1">Gratuit</li>
       <li data-i="p2">77 000+ formations</li>
@@ -194,28 +196,29 @@ main{display:flex;flex-direction:column;gap:28px}
 </main>
 
 <div class="dock off" id="dock">
-  <a class="bouton" data-track href="https://kursiko.com/test" data-i="ctaDock">Faire le test gratuit</a>
+  <a class="bouton" data-track href="https://kursiko.com/test" data-i="ctaDock">Faire mon test gratuit →</a>
 </div>
 
 <script>
 (function(){
   var T={
-    fr:{titreA:"Trouvez",titreB:"les études qui vous ressemblent",titreC:", en France et en Europe.",sousTitre:"Un test de 10 minutes, puis vos écoles classées selon vos réponses, avec leurs dates limites.",cta:"Faire le test",ctaDock:"Faire le test gratuit",p1:"Gratuit",p2:"77 000+ formations",p3:"14 pays",eleve:"Léa, 17 ans",eleveSub:"aime les sciences et la pratique",legende:"Le pourcentage mesure l'accord entre ses réponses et chaque formation.",hReseaux:"Suivez Kursiko",suivre:"Suivre",abonner:"S'abonner",ici:"Vous y êtes",hSite:"Sur kursiko.com",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, votre accord",ecolesLien:"Écoles : référencer votre formation"},
-    en:{titreA:"Find",titreB:"the studies that suit you",titreC:", in France and in Europe.",sousTitre:"A 10-minute test, then your schools ranked by your answers, with their application deadlines.",cta:"Take the test",ctaDock:"Take the free test",p1:"Free",p2:"77,000+ programmes",p3:"14 countries",eleve:"Léa, 17",eleveSub:"likes science and hands-on work",legende:"The percentage measures how well her answers match each programme.",hReseaux:"Follow Kursiko",suivre:"Follow",abonner:"Subscribe",ici:"You are here",hSite:"On kursiko.com",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, your consent",ecolesLien:"Schools: list your programme"},
-    de:{titreA:"Finden Sie",titreB:"das Studium, das zu Ihnen passt,",titreC:" in Frankreich und Europa.",sousTitre:"Ein Test in 10 Minuten, dann Ihre Hochschulen, nach Ihren Antworten geordnet, mit ihren Bewerbungsfristen.",cta:"Test starten",ctaDock:"Kostenlosen Test starten",p1:"Kostenlos",p2:"77.000+ Studiengänge",p3:"14 Länder",eleve:"Léa, 17 Jahre",eleveSub:"mag Naturwissenschaften und Praxis",legende:"Der Prozentsatz misst die Übereinstimmung ihrer Antworten mit jedem Studiengang.",hReseaux:"Folgen Sie Kursiko",suivre:"Folgen",abonner:"Abonnieren",ici:"Sie sind hier",hSite:"Auf kursiko.com",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, Ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
-    es:{titreA:"Encuentre",titreB:"los estudios que van con usted",titreC:", en Francia y en Europa.",sousTitre:"Un test de 10 minutos y, después, sus universidades ordenadas según sus respuestas, con sus fechas límite.",cta:"Hacer el test",ctaDock:"Hacer el test gratis",p1:"Gratis",p2:"77 000+ formaciones",p3:"14 países",eleve:"Léa, 17 años",eleveSub:"le gustan las ciencias y la práctica",legende:"El porcentaje mide la coincidencia entre sus respuestas y cada formación.",hReseaux:"Siga a Kursiko",suivre:"Seguir",abonner:"Suscribirse",ici:"Ya está aquí",hSite:"En kursiko.com",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"}
+    fr:{titreA:"Vos écoles en Europe,",titreB:"classées pour vous",titreC:" en 10 minutes.",sousTitre:"Répondez à quelques questions : Kursiko classe les formations selon vos réponses et vous donne leurs dates limites.",cta:"Faire mon test gratuit →",ctaDock:"Faire mon test gratuit →",acces:"10 minutes · Accès par code, envoyé par e-mail",p1:"Gratuit",p2:"77 000+ formations",p3:"14 pays",eleve:"Léa, 17 ans",eleveSub:"aime les sciences et la pratique",legende:"Le pourcentage mesure l'accord entre ses réponses et chaque formation.",hReseaux:"Suivez Kursiko",suivre:"Suivre",abonner:"S'abonner",ici:"Vous y êtes",hSite:"Sur kursiko.com",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, votre accord",ecolesLien:"Écoles : référencer votre formation"},
+    en:{titreA:"Your schools in Europe,",titreB:"ranked for you",titreC:" in 10 minutes.",sousTitre:"Answer a few questions: Kursiko ranks programmes by your answers and gives you their deadlines.",cta:"Take my free test →",ctaDock:"Take my free test →",acces:"10 minutes · Access by code, sent by email",p1:"Free",p2:"77,000+ programmes",p3:"14 countries",eleve:"Léa, 17",eleveSub:"likes science and hands-on work",legende:"The percentage measures how well her answers match each programme.",hReseaux:"Follow Kursiko",suivre:"Follow",abonner:"Subscribe",ici:"You are here",hSite:"On kursiko.com",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, your consent",ecolesLien:"Schools: list your programme"},
+    de:{titreA:"Ihre Hochschulen in Europa,",titreB:"für Sie geordnet",titreC:" in 10 Minuten.",sousTitre:"Beantworten Sie ein paar Fragen: Kursiko ordnet die Studiengänge nach Ihren Antworten und nennt Ihnen die Fristen.",cta:"Meinen kostenlosen Test starten →",ctaDock:"Meinen kostenlosen Test starten →",acces:"10 Minuten · Zugang per Code, per E-Mail",p1:"Kostenlos",p2:"77.000+ Studiengänge",p3:"14 Länder",eleve:"Léa, 17 Jahre",eleveSub:"mag Naturwissenschaften und Praxis",legende:"Der Prozentsatz misst die Übereinstimmung ihrer Antworten mit jedem Studiengang.",hReseaux:"Folgen Sie Kursiko",suivre:"Folgen",abonner:"Abonnieren",ici:"Sie sind hier",hSite:"Auf kursiko.com",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, Ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
+    es:{titreA:"Sus universidades en Europa,",titreB:"ordenadas para usted",titreC:" en 10 minutos.",sousTitre:"Responda a unas preguntas: Kursiko ordena las formaciones según sus respuestas y le da sus fechas límite.",cta:"Hacer mi test gratis →",ctaDock:"Hacer mi test gratis →",acces:"10 minutos · Acceso con código, enviado por e-mail",p1:"Gratis",p2:"77 000+ formaciones",p3:"14 países",eleve:"Léa, 17 años",eleveSub:"le gustan las ciencias y la práctica",legende:"El porcentaje mide la coincidencia entre sus respuestas y cada formación.",hReseaux:"Siga a Kursiko",suivre:"Seguir",abonner:"Suscribirse",ici:"Ya está aquí",hSite:"En kursiko.com",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"}
   };
   var RESEAUX=["instagram","tiktok","youtube"], from="";
   try{ from=(new URLSearchParams(location.search).get("from")||"").toLowerCase(); }catch(e){}
   if(RESEAUX.indexOf(from)<0){ from=""; }
 
-  // Langue : choix mémorisé, sinon anglais depuis YouTube, français depuis Instagram et TikTok, sinon langue du téléphone
+  // Langue : choix mémorisé, sinon la première langue du téléphone que la page connaît, sinon français.
+  // Pas de géolocalisation par IP : la page est statique et n'envoie l'adresse du visiteur à aucun service.
   var lang="";
   try{ lang=localStorage.getItem("kursiko-lang")||""; }catch(e){}
   if(!T[lang]){
-    if(from==="youtube"){ lang="en"; }
-    else if(from){ lang="fr"; }
-    else{ var nav=((navigator.languages&&navigator.languages[0])||navigator.language||"fr").slice(0,2).toLowerCase(); lang=T[nav]?nav:"fr"; }
+    lang="fr";
+    var prefs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||"fr"];
+    for(var i=0;i<prefs.length;i++){ var c=String(prefs[i]||"").slice(0,2).toLowerCase(); if(T[c]){ lang=c; break; } }
   }
   function appliquer(l){
     var d=T[l]; document.documentElement.lang=l;
