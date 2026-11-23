@@ -154,6 +154,21 @@ main>*{order:3}
 .pied a{color:var(--sarcelle);font-weight:700;text-underline-offset:3px}
 
 
+
+/* TÉLÉPHONE : la carte du haut prend le dégradé de l'app (même thème que l'ordinateur) */
+.appareil-ios .app,.appareil-android .test{position:relative;background:linear-gradient(225deg,var(--bleu),var(--violet));border:0;color:#fff;box-shadow:0 16px 34px rgba(98,60,251,.28)}
+.appareil-ios .app::before,.appareil-android .test::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg at 70% 40%,rgba(255,255,255,.07) 0 6deg,transparent 6deg 12deg)}
+.appareil-ios .app>*,.appareil-android .test>*{position:relative}
+.appareil-ios .app-tete img{box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+.appareil-ios .app-tete .surtitre{color:#FFD23F}
+.appareil-ios .app-tete p{color:rgba(255,255,255,.9)}
+.appareil-ios .ecrans img{box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.appareil-android .test h1 em{color:#FFD23F}
+.appareil-android .test p,.appareil-android .test .test-kurs span,.appareil-android .test .preuves{color:rgba(255,255,255,.92)}
+.appareil-android .test .preuves li::before{color:#FFD23F}
+.appareil-android .test .test-kurs img{box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+
 /* ORDINATEUR : grande bande au dégradé de l'app, l'app en avant (version 2) */
 .ordi-hero{display:none}
 .appareil-ordi .ordi-hero{display:block;position:relative;overflow:hidden;background:linear-gradient(225deg,var(--bleu),var(--violet));color:#fff;margin-bottom:28px}
