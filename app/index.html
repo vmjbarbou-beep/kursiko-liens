@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kursiko</title>
+<meta property="og:title" content="Kursiko · Trouve tes études en Europe">
+<meta property="og:description" content="L'app gratuite sur iPhone, ou le test sur kursiko.com.">
+<meta property="og:image" content="https://liens.kursiko.com/img/apercu.jpg">
+<link rel="icon" type="image/png" href="../img/favicon-48.png">
+<script>
+/* Lien direct : iPhone et iPad vont sur l'App Store, tout le reste sur le test du site. */
+(function(){
+  var ua=navigator.userAgent||"", ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+  var from="bio"; try{ var f=(new URLSearchParams(location.search).get("from")||"").toLowerCase(); if(/^[a-z0-9-]{1,20}$/.test(f)) from=f; }catch(e){}
+  var cible = ios
+    ? "https://apps.apple.com/app/kursiko/id6831558898?ct=liens-"+from
+    : "https://kursiko.com/test?utm_source="+from+"&utm_medium=social&utm_campaign=liens";
+  location.replace(cible);
+})();
+</script>
+<style>body{font-family:system-ui,sans-serif;color:#1B2E4B;background:#F2F4F6;display:grid;place-items:center;min-height:100vh;margin:0;padding:16px;text-align:center}a{color:#357276;font-weight:700}</style>
+</head>
+<body>
+<p><a href="https://apps.apple.com/app/kursiko/id6831558898">App Store</a> · <a href="https://kursiko.com/test">kursiko.com/test</a></p>
+</body>
+</html>
