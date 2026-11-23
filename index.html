@@ -1,193 +1,252 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="appareil-autre">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#FFFFFF">
-<title>Kursiko · Trouvez les études qui vous ressemblent en Europe</title>
-<meta name="description" content="Un test gratuit de 10 minutes, puis vos écoles en Europe classées selon vos réponses, avec leurs dates limites.">
-<meta property="og:title" content="Kursiko · Trouvez les études qui vous ressemblent en Europe">
-<meta property="og:description" content="Un test gratuit de 10 minutes, puis vos écoles classées selon vos réponses.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231B2E4B'/%3E%3Ctext x='50' y='68' font-family='monospace' font-weight='700' font-size='58' text-anchor='middle' fill='%23fff'%3Ek%3C/text%3E%3Crect x='62' y='74' width='22' height='7' fill='%23C93E26'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#F2F4F6">
+<title>Kursiko · Trouve tes études en Europe</title>
+<meta name="description" content="L'app Kursiko sur iPhone : un test qui se joue, puis ton podium d'universités en Europe. Gratuit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://liens.kursiko.com/">
+<meta property="og:title" content="Kursiko · Trouve tes études en Europe">
+<meta property="og:description" content="L'app gratuite sur iPhone, ou le test sur kursiko.com.">
+<meta property="og:image" content="https://liens.kursiko.com/img/apercu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liens.kursiko.com/img/apercu.jpg">
+<meta name="apple-itunes-app" content="app-id=6831558898">
+<link rel="icon" type="image/png" href="img/favicon-48.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700&display=swap">
+<script>
+/* Avant l'affichage : iPhone et iPad (iPadOS se présente comme un Mac tactile) voient l'app en premier. */
+(function(){
+  var ua=navigator.userAgent||"", ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+  var android=/Android/i.test(ua);
+  document.documentElement.className = ios ? "appareil-ios" : (android ? "appareil-android" : "appareil-ordi");
+})();
+</script>
 <style>
 :root{
   color-scheme:light;
-  --nuit:#1B2E4B; --sarcelle:#357276; --aqua:#DDF7F8; --corail:#C93E26; --corail-survol:#B23620;
-  --texte-2:#4F5E78; --texte-3:#6B7890; --bord:#DCE7EA; --bord-fort:#C9D6DA; --fond-doux:#F5F9FA; --jauge:#E6EEF0;
+  --fond:#F2F4F6; --carte:#FFFFFF; --encre:#1B2E4B; --gris:#4F5E78; --gris-2:#6B7890; --filet:#E3E6EB;
+  --sarcelle:#357276; --aqua:#DDF7F8; --corail:#C93E26; --corail-survol:#A8321D;
+  --bleu:#185CFE; --violet:#893CFB;
   --jakarta:"Plus Jakarta Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{min-height:100dvh;color:var(--nuit);font-family:var(--jakarta);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
-  background:linear-gradient(#fff 0%,#f3fbfc 100%);padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+body{min-height:100dvh;background:var(--fond);color:var(--encre);font-family:var(--jakarta);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--sarcelle);outline-offset:3px}
-.col{max-width:480px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.col{max-width:520px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
 
-/* en-tête : comme le site, mot « kursiko_ » et sélecteur de langue */
-.entete{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:14px}
+/* en-tête */
+.entete{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:calc(14px + env(safe-area-inset-top,0px));padding-bottom:12px}
 .mot{font-family:var(--mono);font-weight:700;font-size:22px;letter-spacing:-.5px;text-decoration:none;white-space:nowrap}
 .mot span{color:var(--corail)}
-.langues{display:flex;gap:4px}
-.langues button{min-width:40px;min-height:40px;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;font:700 14px/1 var(--jakarta);color:var(--texte-3)}
-.langues button span{padding:3px 6px;border-radius:8px;border:2px solid transparent}
-.langues button[aria-pressed="true"] span{border-color:rgba(27,46,75,.25);color:var(--nuit)}
+.langue{position:relative}
+.langue select{appearance:none;-webkit-appearance:none;font:700 14px/1 var(--jakarta);color:var(--encre);background:var(--carte);border:1px solid var(--filet);
+  border-radius:999px;padding:10px 32px 10px 14px;min-height:40px;cursor:pointer}
+.langue::after{content:"";position:absolute;right:13px;top:50%;width:7px;height:7px;border-right:2px solid var(--gris);border-bottom:2px solid var(--gris);transform:translateY(-70%) rotate(45deg);pointer-events:none}
 
-/* accroche */
-.hero{display:flex;flex-direction:column;gap:14px;padding-top:4px}
-.titre{margin:0;font-weight:800;font-size:clamp(30px,8.4vw,38px);line-height:1.1;letter-spacing:-.8px;text-wrap:balance}
-.titre em{font-style:normal;color:var(--sarcelle)}
-.sous-titre{margin:0;color:var(--texte-2);font-size:16px;line-height:1.55}
-.bouton{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:15px 28px;border-radius:999px;background:var(--corail);color:#fff;
-  font-weight:700;font-size:17px;text-decoration:none;box-shadow:0 8px 20px rgba(201,62,38,.22);transition:background .15s ease,transform .15s ease}
-.bouton:hover{background:var(--corail-survol)}
+main{display:flex;flex-direction:column;gap:18px}
+.carte{background:var(--carte);border:1px solid var(--filet);border-radius:24px;box-shadow:0 12px 30px rgba(27,46,75,.07)}
+
+/* carte de l'app */
+.app{padding:20px 18px 18px;display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.app-tete{display:flex;align-items:center;gap:14px}
+.app-tete img{width:76px;height:76px;border-radius:18px;box-shadow:0 8px 20px rgba(98,60,251,.28);flex:none}
+.app-tete .surtitre{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sarcelle)}
+.app-tete h1,.app-tete h2{margin:2px 0 0;font-size:clamp(24px,6.6vw,30px);line-height:1.1;font-weight:800;letter-spacing:-.6px}
+.app-tete p{margin:4px 0 0;font-size:14px;color:var(--gris)}
+.etoiles{color:#E8A317;letter-spacing:1px}
+
+.bouton{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:14px 24px;border-radius:999px;text-decoration:none;
+  font-weight:800;font-size:17px;transition:background .15s ease,transform .15s ease}
 .bouton:active{transform:scale(.98)}
-/* réseaux : en haut, avant le bouton du test, visibles sans défiler */
-.reseaux{display:flex;flex-direction:column;gap:10px;margin:2px 0 4px}
-.reseaux h2{margin:0;font-size:14px;font-weight:700;color:var(--texte-2);text-align:center}
-.ronds{display:flex;justify-content:center;gap:10px;margin:0;padding:0;list-style:none}
-.ronds li{flex:1 1 0;max-width:112px}
-.rond{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;padding:4px 2px}
-.cercle{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1.5px solid var(--bord-fort);color:var(--nuit);
-  box-shadow:0 8px 18px rgba(27,46,75,.08);transition:border-color .15s ease,color .15s ease,transform .15s ease}
-.cercle svg{width:26px;height:26px}
-.rond:hover .cercle{border-color:var(--sarcelle);color:var(--sarcelle)}
-.rond:active .cercle{transform:scale(.96)}
-.rond b{font-size:15px;font-weight:700;line-height:1.2}
-.rond small{font-size:13px;color:var(--texte-2);line-height:1.2}
-.rond .ici{display:none;font-size:13px;font-weight:700;color:var(--sarcelle);line-height:1.2}
-.rond.est-ici .cercle{background:var(--aqua);border-color:var(--sarcelle);color:var(--sarcelle)}
+.bouton-store{background:#000;color:#fff;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.bouton-store:hover{background:#1d1d1f}
+.bouton-store svg{width:22px;height:22px;flex:none;margin-top:-3px}
+.bouton-store .deux{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.bouton-store .deux small{font-size:12px;font-weight:600;opacity:.85}
+.bouton-test{background:var(--corail);color:#fff;box-shadow:0 10px 22px rgba(201,62,38,.22)}
+.bouton-test:hover{background:var(--corail-survol)}
+.bouton-doux{background:var(--carte);color:var(--encre);border:1.5px solid var(--filet);min-height:52px;font-size:16px}
+.bouton-doux:hover{border-color:var(--sarcelle)}
+
+/* captures de l'app, en bande qui glisse */
+.ecrans{display:flex;gap:10px;margin:0 -18px;padding:2px 18px 6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;list-style:none}
+.ecrans::-webkit-scrollbar{display:none}
+.ecrans li{flex:0 0 auto;scroll-snap-align:start}
+.ecrans img{display:block;width:132px;height:auto;aspect-ratio:1320/2868;border-radius:16px;box-shadow:0 6px 16px rgba(27,46,75,.14);background:var(--aqua)}
+
+/* carte du test (Android et ordinateur) */
+.test{padding:22px 18px 18px;display:flex;flex-direction:column;gap:14px}
+.test h1,.test h2{margin:0;font-size:clamp(28px,7.6vw,36px);line-height:1.1;font-weight:800;letter-spacing:-.8px;text-wrap:balance}
+.test h1 em,.test h2 em{font-style:normal;color:var(--sarcelle)}
+.test p{margin:0;color:var(--gris)}
+.test-kurs{display:flex;align-items:center;gap:12px}
+.test-kurs img{width:52px;height:52px;border-radius:14px;flex:none}
+.test-kurs span{font-size:14px;color:var(--gris);font-weight:600}
+.preuves{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;padding:0;list-style:none;color:var(--gris);font-size:14px;font-weight:700}
+.preuves li::before{content:"✓ ";color:var(--sarcelle)}
+.note{margin:0;text-align:center;font-size:14px;color:var(--gris)}
+.note a{color:var(--sarcelle);font-weight:700;text-underline-offset:3px}
+
+/* QR pour ouvrir l'app depuis l'ordinateur */
+.qr{display:none;align-items:center;gap:14px;padding:12px;border-radius:18px;background:var(--fond)}
+.qr img{width:104px;height:104px;border-radius:10px;background:#fff;padding:4px;flex:none}
+.qr b{display:block;font-size:15px}
+.qr span{font-size:14px;color:var(--gris)}
+.appareil-ordi .qr{display:flex}
+.appareil-ordi .app .bouton-store{display:none}
+
+/* ordre selon l'appareil : l'app en tête sur iPhone et iPad, le test ailleurs */
+main>*{order:3}
+.test{order:1}
+.android{order:2}
+.app{order:2}
+.appareil-ios .test{order:2}
+.appareil-ios .app{order:1}
+.appareil-ios .test .bouton-test{display:none}
+.appareil-ios .seulement-autre{display:none}
+.seulement-ios{display:none}
+.appareil-ios .seulement-ios{display:block}
+.appareil-android .app{display:none}
+.android{display:none;padding:14px 16px;font-size:14px;color:var(--gris);text-align:center}
+.appareil-android .android{display:block}
+.android b{color:var(--encre)}
+
+/* réseaux */
+.reseaux{display:flex;flex-direction:column;gap:10px;padding:16px 12px}
+.reseaux h2{margin:0;font-size:14px;font-weight:800;color:var(--gris);text-align:center}
+.ronds{display:flex;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.ronds li{flex:1 1 0;max-width:120px}
+.rond{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;padding:4px 2px}
+.cercle{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--fond);color:var(--encre);transition:background .15s ease,color .15s ease}
+.cercle svg{width:24px;height:24px}
+.rond:hover .cercle{background:var(--aqua);color:var(--sarcelle)}
+.rond b{font-size:14px;font-weight:800;line-height:1.2}
+.rond small{font-size:13px;color:var(--gris);line-height:1.2}
+.rond .ici{display:none;font-size:13px;font-weight:800;color:var(--sarcelle);line-height:1.2}
+.rond.est-ici .cercle{background:var(--aqua);color:var(--sarcelle)}
 .rond.est-ici small{display:none}
 .rond.est-ici .ici{display:inline}
-.acces{margin:-6px 0 0;text-align:center;font-size:14px;color:var(--texte-2)}
-.preuves{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;margin:0;padding:0;list-style:none;color:var(--texte-2);font-size:14px;font-weight:600}
-.preuves li::before{content:"✓ ";color:var(--sarcelle)}
 
-/* exemple de résultat, repris du schéma de l'accueil */
-.schema{background:#fff;border:1px solid var(--bord);border-radius:20px;padding:14px 14px 16px;box-shadow:0 14px 34px rgba(27,46,75,.08);display:flex;flex-direction:column;gap:10px;margin-top:22px}
-.eleve{display:flex;align-items:center;gap:10px}
-.eleve img{width:44px;height:44px;border-radius:50%;border:2px solid var(--sarcelle);background:var(--aqua)}
-.eleve b{display:block;font-size:15px;font-weight:800;line-height:1.2}
-.eleve small{font-size:14px;color:var(--texte-2)}
-.ecoles{list-style:none;margin:0 0 0 22px;padding:0 0 0 18px;border-left:2px solid var(--filet,#B9DFE1);display:flex;flex-direction:column;gap:8px}
-.ecole{display:grid;grid-template-columns:24px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--bord);border-radius:14px;background:#fff;
-  opacity:0;transform:translateY(6px);animation:entre .5s ease forwards}
-.ecole:nth-child(2){animation-delay:.15s}.ecole:nth-child(3){animation-delay:.3s}
-@keyframes entre{to{opacity:1;transform:none}}
-.ecole svg{width:24px;height:16px;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
-.ecole b{display:block;font-size:15px;font-weight:700;line-height:1.25}
-.ecole small{display:block;font-size:14px;color:var(--texte-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.pct{font-family:var(--jakarta);font-weight:800;font-size:16px;color:var(--sarcelle);white-space:nowrap}
-.legende{margin:0;font-size:14px;color:var(--texte-2)}
-
-/* listes */
-main{display:flex;flex-direction:column;gap:28px}
-.bloc{display:flex;flex-direction:column;gap:10px}
-.bloc h2{margin:0;font-size:20px;font-weight:800;letter-spacing:-.4px}
-.liste{margin:0;padding:0;list-style:none;background:#fff;border:1px solid var(--bord);border-radius:20px;box-shadow:0 14px 34px rgba(27,46,75,.06);overflow:hidden}
-.liste li+li{border-top:1px solid var(--jauge)}
-.ligne{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:14px;min-height:68px;padding:10px 16px;text-decoration:none}
-.ligne:hover{background:var(--fond-doux)}
-.pastille{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--aqua);color:var(--sarcelle)}
-.pastille svg{width:22px;height:22px}
+/* liens du site */
+.liste{margin:0;padding:0;list-style:none;overflow:hidden}
+.liste li+li{border-top:1px solid var(--filet)}
+.ligne{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:64px;padding:10px 16px;text-decoration:none}
+.ligne:hover{background:#F8FAFB}
+.pastille{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--aqua);font-size:20px}
 .nom{min-width:0;display:flex;flex-direction:column}
-.nom b{font-weight:700;font-size:17px;line-height:1.25}
-.nom small{font-size:14px;color:var(--texte-2)}
-.fleche{width:20px;height:20px;color:var(--sarcelle);transition:transform .15s ease}
-.ligne:hover .fleche{transform:translateX(3px)}
+.nom b{font-weight:700;font-size:16px;line-height:1.25}
+.nom small{font-size:14px;color:var(--gris)}
+.fleche{width:18px;height:18px;color:var(--sarcelle)}
 
-.pied{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:20px;border-top:1px solid var(--jauge);text-align:center;font-size:14px;color:var(--texte-3)}
+.pied{display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:8px;text-align:center;font-size:14px;color:var(--gris-2)}
 .pied p{margin:0}
 .pied a{color:var(--sarcelle);font-weight:700;text-underline-offset:3px}
 
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:5;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
-  background:linear-gradient(rgba(243,251,252,0),#f3fbfc 40%);transition:transform .25s ease,opacity .25s ease}
-.dock .bouton{max-width:448px;margin:0 auto}
-.dock.off{transform:translateY(120%);opacity:0;pointer-events:none}
-@media (prefers-reduced-motion:reduce){.ecole{animation:none;opacity:1;transform:none}.dock,.bouton,.fleche{transition:none}}
+@media (min-width:900px){
+  .col{max-width:560px}
+  .appareil-ordi .ecrans img{width:112px}
+}
+@media (prefers-reduced-motion:reduce){.bouton,.cercle{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="col entete">
-  <a class="mot" data-track href="https://kursiko.com/" aria-label="Kursiko, accueil">kursiko<span>_</span></a>
-  <div class="langues" role="group" aria-label="Langue / Language">
-    <button type="button" data-lang="fr" aria-pressed="true"><span>FR</span></button>
-    <button type="button" data-lang="en" aria-pressed="false"><span>EN</span></button>
-    <button type="button" data-lang="de" aria-pressed="false"><span>DE</span></button>
-    <button type="button" data-lang="es" aria-pressed="false"><span>ES</span></button>
-  </div>
+  <a class="mot" data-track href="https://kursiko.com/" aria-label="Kursiko">kursiko<span>_</span></a>
+  <label class="langue"><span class="sr" hidden>Langue</span>
+    <select id="langue" aria-label="Langue / Language">
+      <option value="fr">FR</option><option value="en">EN</option><option value="de">DE</option>
+      <option value="es">ES</option><option value="it">IT</option><option value="pt">PT</option>
+    </select>
+  </label>
 </header>
 
 <main class="col">
-  <section class="hero" id="haut" aria-labelledby="titre">
-    <h1 class="titre" id="titre"><span data-i="titreA">Vos écoles en Europe,</span> <em data-i="titreB">classées pour vous</em><span data-i="titreC"> en 10 minutes.</span></h1>
-    <p class="sous-titre" data-i="sousTitre">Répondez à quelques questions : Kursiko classe les formations selon vos réponses et vous donne leurs dates limites.</p>
-    <nav class="reseaux" aria-labelledby="h-reseaux">
-      <h2 id="h-reseaux" data-i="hReseaux">Suivez Kursiko</h2>
-      <ul class="ronds" id="reseaux">
-        <li data-net="tiktok"><a class="rond" href="https://www.tiktok.com/@kursiko.app" target="_blank" rel="noopener">
-          <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>
-          <b>TikTok</b><small>@kursiko.app</small><span class="ici" data-i="ici">Vous y êtes</span></a></li>
-        <li data-net="instagram"><a class="rond" href="https://www.instagram.com/kursiko.app/" target="_blank" rel="noopener">
-          <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></span>
-          <b>Instagram</b><small>@kursiko.app</small><span class="ici" data-i="ici">Vous y êtes</span></a></li>
-        <li data-net="youtube"><a class="rond" href="https://www.youtube.com/@kursiko" target="_blank" rel="noopener">
-          <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></svg></span>
-          <b>YouTube</b><small>@kursiko</small><span class="ici" data-i="ici">Vous y êtes</span></a></li>
-      </ul>
-    </nav>
-    <a class="bouton" id="cta" data-track href="https://kursiko.com/test" data-i="cta">Faire mon test gratuit →</a>
-    <p class="acces" data-i="acces">10 minutes · Accès par code, envoyé par e-mail</p>
-    <ul class="preuves">
-      <li data-i="p1">Gratuit</li>
-      <li data-i="p2">77 000+ formations</li>
-      <li data-i="p3">14 pays</li>
-    </ul>
 
-    <div class="schema">
-      <div class="eleve">
-        <img src="data:image/webp;base64,UklGRj4SAABXRUJQVlA4IDISAAAwUgCdASrAAMAAPj0ai0OiIaEWO01EIAPEsYBn7S/v30Rzk+vvP0bji7zXXz/Rr5h/P08xn7Uerz6SP7v6gH9y6nf0AP2j64T93/SZ1TPd5nQ+E+5fMgiR/L/zb/L/v3p14h8A6AvaL99vAP1sL17kNvS/YN/SHozaRXqr2EjY77zkbgF/vmuhiYjG0f/LQI2S+cC3/shwjNJQOf232Z+pAuJuahSlP/Za/yUk4xr31pHpkDMK+9/eSk3fiqNGnkjfblkpaePqy4xAXztdK1nLJRbK2QVw7v2c9EGPMrFWb7UtQ67Q5Ih7U3DAJhAu6ix1aj9PeNxAKOJ+VEvSyhXPkmJHRaXw6YqNWGO4r6/9/6svbXO1azf/zwikdekDO+uIl2C9hEm0BctShkRmYSrp805p/2IgasueMpdQ2+Ehoqeicxj+C7hQ0WTGjp9QtJ4H3fqkRHSn1o3zCTKk5pRcy/TxPIDZpvl4LkloYnSJIlge6feVRg6vrD/cRhzUdptCVAsnIqNMygFdKnxH2pDAeSJU6FmW4xlYhfuSEKGKsWC87JNtm+6/762/uNg10Nh7WUUVXKE+vqU3q+NzFba1mIozMykWxBThG6lwwAwDGTYv65vsrZ0ltlKP7LlKPLm7zIFJNo0E4TbdHrnQBY/8/JYxgfSnwK2z50tBzx65+H0kfObZvEZzlJ7CdnlPn1TAz0vCZxDExBv/kL4ImAcAnh+P2Ot6KBL/5BpuVwdkPOFVdbyKwvK3XL/jmbL4x/Y+7LwZcjM6fK86Q+ppHMXc5CoRUsHABEfSm1NvjqQh77+SBK3YFpPhdUmubX+jUhlDwhMRNAr6bR3K31wYa3GX8TVui1+6j6aV2TTDhE2KdlfvtGik28DWggAA/vuWM7CZtm//CI/k8++3ZL+rmViOza/y0C/sMLwyPk9/jQmrocnPrdNcvRGjU6m1JNCJSo3WS3hzIRQuVZCsNiihJvTAvjgcujTPVcx7exz6QInDuWMEsGwCDW4xP4/+EIZo3P/N+85wIhWDwEaCuGDS3HzMgv4gv2MtGEcXD/BF00gSqdpHM5d6jElCtSoh9bEL9FNoRf67Apk1XJ9OnLo8wDgb1zzOVPV0bqokHFxr02/WQvhP4dBsO4YB4WgWYHLznOaR8cKW62fzRnfmOM+0ncBQIJHNw/r3xfWJHGnvtGzDr3XHHN3G81urrIcu7h10WHfkMYT6cbav5IHwDeAgadDtBqMVdWwPiaNKO65I4rJaL3UHbicQSq/KC/OMGwJ642UYgYk2tgV+AWnFG8qtaLO/KmLP/rAUjCkEBQ6OzZqfWcmD/m8wWizPuzrfAxKVdHO3oZCnKGcT5OjQn1wmjPxVfdllR5HWBk/SB4vOmC2+5kWx39qvr8lVadnNBwubEsbMPoIlYgy0gI8rCtJM21R2EwU0+dHXYQ/q+wF7hV+HEl56xYpycsgnoU8GPSQVehwO9Wls6GJsEf9RfDjoP2//F2W+/Aw+8aYaNy3X0SMx4fEhbhhLaOklp6cVyS65ocUw0562ZzMCBP75HNeCjb4IGEXKSPtJPFkMBSR04Uf/YoWGJGIRHE0I/QmbnE39fdhgfi+mzhvuelKc5F991fRoOr3CFDDGCMVpYpzlxi0yQa0yhPTILfwm4MgaYcs3Qd8bTMNJyYoIXACD58V7YRT71m2uxKHjMuGnFah5onyk3wo9Wj11vfpVI9vGRHOLBJkM2eklSs+R+sfxDh4/LPjtadJqA64teaQY8ZJEV30qjgrdlCxt9xffwdr7OdLyd6y0SDeYr4bAkF1bTiwH4u2dtEmAldh9njtyNe14lEKHW0l752P30QMg7nZhOEczAvlXr8Ov3cxz+A3HX4sgwHLbpQyqY/JrP3Kk79ouSvsWo4HcGm5pVmvi9uDENgzVtZrEx7CSaCupRXBRITZEMuBk0HYC3HfPnVe9+ciEmc2v+nrMievcaPjPdb2LJANpDulW1cXokmxap3eum0fYRIu1FB2nh7gXcM1IADx41rkID+VBNx9xmKZXWgqBftmFLuuWea8OXd/HfMPaJVQzSiTV5KzBr6vuLIxJkyON6aiRBJhT4DScabJpog+i7Uv/G/a3FC2vl1hRlTLcMrWId4zzy1GxDirixttD3gN/IIxHQChVlp8SDgWeoIJZDyJtG0t/fUoZRGpKx9Nc6TGaMvctQtNe+qy4sYxtn5q0FdSa70Sl4RakImeEH9JfebTx6qKSqTLt/PXk0sFjKffSdRgP46j7GD79kFWv4P4ZqBQ7gmMHVNWS7ha0o1VvvMcdiGXGIXlyQcVgQbQSzSUs1LYk1nPcLGONfXbQSxuQP0J1uYiia1w9z1OAU0hkuD0uwjgIE5l7Q8368dKS+xBRMSpG6Y70ODRL8FElVmezGZoeZ7xADFR1sz/lVSsdOU8fQVW3k7ZKMq6ci/w/Yinyk2yQ1K3jtszJp4Nws7OFw6G2gCZVuRpzpsff7un3F9PzdZ+Zdlt1BUpggZOHTKgkPuoW37Ha6qwGy+/WVCYwFwv2sBYROyvTDe0axoPNWG1i0zijLh16WZKsv9qX0j7ktMGZfRDrsTm3uRZWacs7b0hRlhURYsNq4T4DPv/zZEVQYsjKbrV3hCY6Qri0F0Rdh4511E2wZe24I0EoAx365oLUiP47I1YearqsiIPfAiRzA1QH9VzCQuO2aWosjq2h0c7sNuV0xNKKECd3c8b4K0/7av2D3D3JhRl5Ke2A5JBNpdem+kq6wPynJEs91pZLi4H0ccExqIQefkLaukOnB0yC8AhxAugMlaNcSjTmC/xUQY6Qrdea50qC0uiyiusQs0ZxHVkheUaxySkAZfo/QyFP99xV75bmzgxvT1f5F+URrOX8KA+yFlqoYox/ulL1vBAJAbk3ZA18PGeStKbvdEkYRlZQY+N+B/yXO5QimwAoaTxxgBAjdRwyC+P8aN0lpLUI5pLjSUmYeJqV7qd05LCOYVbmYFNTgOF7+8MlkA1VQUyW6NJiQPt2vYxMPCpuyE/c9mds/yXgRmLxNLShDy555uU8hmOydwDHqcMfNj5ECa/iD9u0uEWCaU98qhTPMP+QaPW5lhMnDIdl7v8XvAMOjOEOPVZmck0TTaRhH5pl+cqb2AXLFyWJFhVWFwscnmZmRf9i19VYeqe7NswzS2LB7FzDiZOvezOiX6OmWmo0T40mHAiENIuh1n9nCoz3/bSGVY+zmCMzMMUMvhGsoxQLOz4hxqfo23e8D0VDpoC6VBC5IuS6XjZy18adeA95CrOEtqst2IBQn5lSW0yEr5Ymnv/MxN0iFKxx2LiNdIlv66yEcAeDa7LLoMji5c5SwuQi+dgkJFh05AI1x0+A8KMEzK9jfAvNJjIGCMSrxA+3aSI3iFyk0eyd5DNDCbZV1CDUKUpd7gKt6TV9SWHlZlfZYS6Xcppe60CbF8h6rQNQ437mEl6nJHgad/xWAmawP4ot/f+Te8GZuIUfiQ6LJ01ERH3Bv+KZhRBw3EdHrcPIXZGtD19KOJ90VVWxlDu+GDkZcTT98mZvPX7nUUYwu+/YCpqsx9CQgaQuvMea4xJajA8rSlrTbZDEu+jXjlZEyNOzs7nZ+ENglab6lBO2/l4NJNihiTHfmKN35i5zY3yazJRc985R205cS34IbvHfG3TQP0Nwglw7nJCfnFdbQoEDMnWyLdfVciVFGhYHsE6T/GP+8gIV7vSrXhqeaUVtKPlaj+QFwYHzYXVHeEsJiPrJt7NB2bZ0QyOtWKAbPYz0oxpONhFah2SCQjDF509AFcvsYw6ZLk7AgPPGAmgX00MIWqrj3UVc5LIJk32MfBGLJIlA+ERg9sjLe8V/5mkfJb/XAatt+BvR4CbsfW+5ROzn/o+ZNgIvnoZ5WYBpJI1uw3FQnxYr08l0Xo6kbub86MkILOGk93ne4TvCXuoxe2fK3FPqTZ2xja+ZPHXaZxxOgoarZ18isecGlrfoR/xrdev62DeRIYr8t6Qn6QAaHjBT0R2EMyo3jg3NSkOPiH/LT36G9nR3AhrsyZ3FVO7on4LTKUsd6D/Si2FpascNaHcFWo3w2uylsU3T3tXLfxCcn+e6FykDCS/4GAVAFu8ceBebPwbPjOn/9ZCfGk3I6CAWMoyMVXI/ZZTzomTTem/U6LmXXgSj8MhNqbe07OiLj9c/hX4k255l6b6iRvEulXLlzrnwh8bEnKeafr96FEC1uYKO38oESRD5XdJPksW855bIuyXJU2yepNSJoPvVKCnqpf8MVGTFsbpWOQ4KwHQ3vot3FXw2B++v57+D6az3GxVIH0GIXGL0T4rDRZs+y1tBKBI9SJ59uIcbTbAtWToAJwbGIT5WzqPBf2jCOrdDjAI1xp9RgTFSgXx+BF2y7bziVGCzQHmswcixdYZRrKhSAA4LOsTpF2P8LSQ+yi/oExoe+5t0dkokQMR4aWFwGq9RvUVR8Nit2PKeMn+CgplxD+uxlZLZvyCYunNZM9CuTCKPdoT9KYQhm2QJ6P4TJSbYiiAeynb7yeP+9B7slwaIQMxXk7Wi6MEFvQQsbmZ5mamt/u7P43iyGdc/jfKXvW/p6x7dfhFiF7h/D5oy8VfYDkE3jNPZBe3H3LGaqeonHxvSgUauzfCyfGPq5gEapSJowopFBg/psUE7e22Mw8NIysfoKeJae2fRH9chlvntTnv4DvLpd+xP/H8u7dgdWxJY8m3Zje/sKIt9Qs2tl2WvW+C6AsB+dRvfC8Ac1PV3s4EyCOSPJee0Lz/O5zdc0TI3V/G33GiGPtK0EBVhPiO2j1OIlmgc4uqxNeu13rVd4cQyT1MG3n8tuI1FjhPs05VJ7GjAyJ4Rwl4pGtfo9yeg6sjzQsH3C59m02PdSNSpqw88sjohaRJ8quCzSCUp4QPjhHDR0RhQ7pRSteCI6M0QLsdHgCppGAx++1Ki0aA8XgOrsjiQ20mR/TWecvOf5fJz+IkOkWm1abZuZxujVoo98jTcy00LKS6wGha6LSl1F2wSHmFhZiFtlc2bstaEINqdeHBkIRj2ZdEG0xpAABX6EB83DVmCvdlUon5mHH5nKzzCA5jhrpJNfCskcBq5H7E//2MIXcqMsgPnbyPh53zwcKmtJmRkRIypO3ejmZAlTAx92zNovX+nP1SaClstq+epQWL/T64aPlkJvjgek7hwSfcD2aamKpEe87fwSUQAKF1Hewpg0QvgLGsXRVdj7qgdtovKyRW3NCdvnoW03PG6W1DEh/x0eQs34wpJKikirGfuQUNtHCiBcpS1z5bgXPoEF5Eo+1KMpZpKWTASnaeZjOmADdaAs5fEL1rcLvk1JXzQDMNa8Q9WETEl5BCN7ShYr2wKhmOh2L4JTt1XeQQXxFvvmPLfUX8LRN74934WnjZi+khoM5GZLgSWY16Db6/h3Ocqu7TqpxRrRBxjC9X2jL1nglX0wJNQqyrriPn2sSx3KVH+6Li/i+WAT5UAqEHMJ3TZBXSXLPto+6Dag2rzF4FFKnzit9ic7MPb3bwWwLHW/XaOG3l8T58kUAg0/+/ulq755C6OT0AmvQOVhdIhaHV3t7+HU0uuj5CUKkqldbBiV3uGiOuyIvH+tmFY8yi0jzQttcugsQzRSJvxnTDBsSCO8NQL+DPRCeXOe5PwGz+e6+P7yTfbwo+ZtKtOq1vb/dIZKxFRCkbEIgjY3pgVe4ltx+4DEmbArY97W8CAGjPZljPmYxwkN6X6nFQqVTcHmLLFumtQAIdywAg3QREFfmBlDw7XjwPW9/wCCZ3hqBe3yWyyrV2u7qNgwJnKW6IgUyFY8FzHDEXm5pHuAJIt+axRZZ8sNCIADSL0qG7qhib9VPLXA/DUQwlpB4MsDpPj+aFk8ircJXWyfy8PgjK220AiV3UK1czV5grZdO4EhZTvDfzOQKl/N0EhOkKXMrk3A1NNt5vn1RC5Wn2NEfRNxGXQNRsmAjxjum7LwpYrb/khVHW4Oa2U0mO5aRSu4mrs8YnYqAX05M4fewyQ4ZcKfIOrM6/pSxcGeb/dFGL8TnraQ0fQbFBODBZIlL4sFHoskWyIdJqeRqtKr0HNBk8oQPCo1q4REuFMeKcOuSaN8kWU9zzzEBEIT0NNpXd2Dhgcz/NALtAPTNqDFJ/g6mTMKtfc+0h9cBExXqS6g4Q92PVACRK/iqhQSRXKccXnyjW5DH2VxxPvg1mlP+3hxyej/AAAAA==" width="44" height="44" alt="">
-        <div><b data-i="eleve">Léa, 17 ans</b><small data-i="eleveSub">aime les sciences et la pratique</small></div>
+  <!-- L'APP : en premier sur iPhone et iPad -->
+  <section class="carte app" aria-labelledby="t-app">
+    <div class="app-tete">
+      <img src="img/kurs-app.webp" width="76" height="76" alt="">
+      <div>
+        <span class="surtitre" data-i="appSur">L'app iPhone</span>
+        <h2 id="t-app" data-i="appTitre">Trouve tes études en Europe</h2>
+        <p><span data-i="appInfo">Gratuite · iPhone et iPad</span></p>
       </div>
-      <ul class="ecoles">
-        <li class="ecole">
-          <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk"><path d="M0 0v30h60V0z"/></clipPath><g clip-path="url(#uk)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" stroke="#C8102E" stroke-width="3"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>
-          <div style="min-width:0"><b>Imperial College London</b><small>Electrical and Electronic Engineering</small></div>
-          <span class="pct">93 %</span></li>
-        <li class="ecole">
-          <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#DA291C"/><path d="M10.5 4h3v2.5H16v3h-2.5V12h-3V9.5H8v-3h2.5z" fill="#fff"/></svg>
-          <div style="min-width:0"><b>EPFL</b><small>Electrical and Electronic Engineering</small></div>
-          <span class="pct">90 %</span></li>
-        <li class="ecole">
-          <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#FFCE00"/><rect width="24" height="10.67" fill="#DD0000"/><rect width="24" height="5.33" fill="#000"/></svg>
-          <div style="min-width:0"><b>TUM</b><small>Aerospace (BSc)</small></div>
-          <span class="pct">86 %</span></li>
-      </ul>
-      <p class="legende" data-i="legende">Le pourcentage mesure l'accord entre ses réponses et chaque formation.</p>
     </div>
-  </section>
-
-  <section class="bloc" aria-labelledby="h-site">
-    <h2 id="h-site" data-i="hSite">Sur kursiko.com</h2>
-    <ul class="liste">
-      <li><a class="ligne" data-track href="https://kursiko.com/comment-ca-marche">
-        <span class="pastille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4"/><path d="M12 16.8h.01"/></svg></span>
-        <span class="nom"><b data-i="comment">Comment ça marche</b><small data-i="commentSub">Le test, le classement, les dates limites</small></span>
-        <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
-      <li><a class="ligne" data-track href="https://kursiko.com/pays">
-        <span class="pastille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.4 3.9 5.2 3.9 8.5s-1.3 6.1-3.9 8.5c-2.6-2.4-3.9-5.2-3.9-8.5S9.4 5.9 12 3.5Z"/></svg></span>
-        <span class="nom"><b data-i="pays">Pays</b><small data-i="paysSub">Candidature, frais et calendrier par pays</small></span>
-        <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
-      <li><a class="ligne" data-track href="https://kursiko.com/parents">
-        <span class="pastille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3.3 2.5-5.8 5.5-5.8s5.5 2.5 5.5 5.8"/><circle cx="17" cy="10" r="2.5"/><path d="M15.2 14.3c.6-.2 1.2-.3 1.8-.3 2.2 0 3.8 1.9 3.8 4.4"/></svg></span>
-        <span class="nom"><b data-i="parents">Pour les parents</b><small data-i="parentsSub">Le coût, les données, votre accord</small></span>
-        <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
+    <a class="bouton bouton-store" id="store" href="https://apps.apple.com/app/kursiko/id6831558898" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.1 1.72-3.12 1.8-3.17-.98-1.43-2.5-1.63-3.05-1.65-1.3-.13-2.53.76-3.19.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.82-3.45 2.09-1.47 2.55-.38 6.33 1.06 8.4.7 1.01 1.54 2.15 2.63 2.11 1.06-.04 1.46-.68 2.73-.68 1.28 0 1.64.68 2.75.66 1.14-.02 1.86-1.03 2.55-2.05.8-1.17 1.13-2.31 1.15-2.37-.03-.01-2.21-.85-2.23-3.38ZM14.27 6.43c.58-.71.98-1.69.87-2.68-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.89 2.58.94.07 1.9-.47 2.48-1.16Z"/></svg>
+      <span class="deux"><small data-i="storeHaut">Télécharger dans</small><span>l'App Store</span></span>
+    </a>
+    <div class="qr">
+      <img src="img/qr-app.svg" width="104" height="104" alt="">
+      <div><b data-i="qrTitre">Sur ton iPhone</b><span data-i="qrTexte">Scanne avec l'appareil photo : l'App Store s'ouvre sur Kursiko.</span></div>
+    </div>
+    <ul class="ecrans" aria-label="Captures de l'app">
+      <li><img data-ecran="01" src="img/app/fr-01.webp" width="132" height="287" alt="" loading="lazy"></li>
+      <li><img data-ecran="03" src="img/app/fr-03.webp" width="132" height="287" alt="" loading="lazy"></li>
+      <li><img data-ecran="05" src="img/app/fr-05.webp" width="132" height="287" alt="" loading="lazy"></li>
+      <li><img data-ecran="07" src="img/app/fr-07.webp" width="132" height="287" alt="" loading="lazy"></li>
     </ul>
   </section>
+
+  <!-- LE TEST : en premier sur Android et ordinateur -->
+  <section class="carte test" aria-labelledby="t-test">
+    <div class="seulement-autre">
+      <div class="test-kurs"><img src="img/kurs-app.webp" width="52" height="52" alt=""><span data-i="kursDit">Kurs t'accompagne à chaque question</span></div>
+    </div>
+    <h1 id="t-test" class="seulement-autre"><span data-i="titreA">Ton podium d'universités</span> <em data-i="titreB">en Europe</em></h1>
+    <p class="seulement-autre" data-i="sousTitre">Un test qui se joue en 10 minutes, puis les formations classées pour toi, avec leurs dates limites.</p>
+    <a class="bouton bouton-test" data-track href="https://kursiko.com/test" data-i="cta">Faire le test gratuit →</a>
+    <ul class="preuves seulement-autre">
+      <li data-i="p1">Gratuit</li>
+      <li data-i="p2">82 000+ formations</li>
+      <li data-i="p3">Toute l'Europe</li>
+    </ul>
+    <p class="note seulement-ios"><span data-i="iosSite">Tu préfères le site ?</span> <a data-track href="https://kursiko.com/test" data-i="iosSiteLien">Faire le test sur kursiko.com</a></p>
+  </section>
+
+  <p class="carte android" data-i-html="android"><b>L'app Android arrive bientôt.</b> En attendant, le test se fait ici, sur le site.</p>
+
+  <nav class="carte reseaux" aria-labelledby="h-reseaux">
+    <h2 id="h-reseaux" data-i="hReseaux">Suis Kursiko</h2>
+    <ul class="ronds" id="reseaux">
+      <li data-net="tiktok"><a class="rond" href="https://www.tiktok.com/@kursiko.app" target="_blank" rel="noopener">
+        <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48Z"/></svg></span>
+        <b>TikTok</b><small>@kursiko.app</small><span class="ici" data-i="ici">Tu y es</span></a></li>
+      <li data-net="instagram"><a class="rond" href="https://www.instagram.com/kursiko.app/" target="_blank" rel="noopener">
+        <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></svg></span>
+        <b>Instagram</b><small>@kursiko.app</small><span class="ici" data-i="ici">Tu y es</span></a></li>
+      <li data-net="youtube"><a class="rond" href="https://www.youtube.com/@kursiko" target="_blank" rel="noopener">
+        <span class="cercle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8Z" fill="currentColor"/></svg></span>
+        <b>YouTube</b><small>@kursiko</small><span class="ici" data-i="ici">Tu y es</span></a></li>
+    </ul>
+  </nav>
+
+  <ul class="carte liste">
+    <li><a class="ligne" data-track href="https://kursiko.com/comment-ca-marche">
+      <span class="pastille" aria-hidden="true">💡</span>
+      <span class="nom"><b data-i="comment">Comment ça marche</b><small data-i="commentSub">Le test, le classement, les dates limites</small></span>
+      <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
+    <li><a class="ligne" data-track href="https://kursiko.com/pays">
+      <span class="pastille" aria-hidden="true">🌍</span>
+      <span class="nom"><b data-i="pays">Pays</b><small data-i="paysSub">Candidature, frais et calendrier par pays</small></span>
+      <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
+    <li><a class="ligne" data-track href="https://kursiko.com/parents">
+      <span class="pastille" aria-hidden="true">👨‍👩‍👧</span>
+      <span class="nom"><b data-i="parents">Pour les parents</b><small data-i="parentsSub">Le coût, les données, leur accord</small></span>
+      <svg class="fleche" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></a></li>
+  </ul>
 
   <footer class="pied">
     <p><a data-track href="https://kursiko.com/partenaires" data-i="ecolesLien">Écoles : référencer votre formation</a></p>
@@ -195,24 +254,21 @@ main{display:flex;flex-direction:column;gap:28px}
   </footer>
 </main>
 
-<div class="dock off" id="dock">
-  <a class="bouton" data-track href="https://kursiko.com/test" data-i="ctaDock">Faire mon test gratuit →</a>
-</div>
-
 <script>
 (function(){
   var T={
-    fr:{titreA:"Vos écoles en Europe,",titreB:"classées pour vous",titreC:" en 10 minutes.",sousTitre:"Répondez à quelques questions : Kursiko classe les formations selon vos réponses et vous donne leurs dates limites.",cta:"Faire mon test gratuit →",ctaDock:"Faire mon test gratuit →",acces:"10 minutes · Accès par code, envoyé par e-mail",p1:"Gratuit",p2:"77 000+ formations",p3:"14 pays",eleve:"Léa, 17 ans",eleveSub:"aime les sciences et la pratique",legende:"Le pourcentage mesure l'accord entre ses réponses et chaque formation.",hReseaux:"Suivez Kursiko",suivre:"Suivre",abonner:"S'abonner",ici:"Vous y êtes",hSite:"Sur kursiko.com",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, votre accord",ecolesLien:"Écoles : référencer votre formation"},
-    en:{titreA:"Your schools in Europe,",titreB:"ranked for you",titreC:" in 10 minutes.",sousTitre:"Answer a few questions: Kursiko ranks programmes by your answers and gives you their deadlines.",cta:"Take my free test →",ctaDock:"Take my free test →",acces:"10 minutes · Access by code, sent by email",p1:"Free",p2:"77,000+ programmes",p3:"14 countries",eleve:"Léa, 17",eleveSub:"likes science and hands-on work",legende:"The percentage measures how well her answers match each programme.",hReseaux:"Follow Kursiko",suivre:"Follow",abonner:"Subscribe",ici:"You are here",hSite:"On kursiko.com",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, your consent",ecolesLien:"Schools: list your programme"},
-    de:{titreA:"Ihre Hochschulen in Europa,",titreB:"für Sie geordnet",titreC:" in 10 Minuten.",sousTitre:"Beantworten Sie ein paar Fragen: Kursiko ordnet die Studiengänge nach Ihren Antworten und nennt Ihnen die Fristen.",cta:"Meinen kostenlosen Test starten →",ctaDock:"Meinen kostenlosen Test starten →",acces:"10 Minuten · Zugang per Code, per E-Mail",p1:"Kostenlos",p2:"77.000+ Studiengänge",p3:"14 Länder",eleve:"Léa, 17 Jahre",eleveSub:"mag Naturwissenschaften und Praxis",legende:"Der Prozentsatz misst die Übereinstimmung ihrer Antworten mit jedem Studiengang.",hReseaux:"Folgen Sie Kursiko",suivre:"Folgen",abonner:"Abonnieren",ici:"Sie sind hier",hSite:"Auf kursiko.com",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, Ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
-    es:{titreA:"Sus universidades en Europa,",titreB:"ordenadas para usted",titreC:" en 10 minutos.",sousTitre:"Responda a unas preguntas: Kursiko ordena las formaciones según sus respuestas y le da sus fechas límite.",cta:"Hacer mi test gratis →",ctaDock:"Hacer mi test gratis →",acces:"10 minutos · Acceso con código, enviado por e-mail",p1:"Gratis",p2:"77 000+ formaciones",p3:"14 países",eleve:"Léa, 17 años",eleveSub:"le gustan las ciencias y la práctica",legende:"El porcentaje mide la coincidencia entre sus respuestas y cada formación.",hReseaux:"Siga a Kursiko",suivre:"Seguir",abonner:"Suscribirse",ici:"Ya está aquí",hSite:"En kursiko.com",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"}
+    fr:{appSur:"L'app iPhone",appTitre:"Trouve tes études en Europe",appInfo:"Gratuite · iPhone et iPad",storeHaut:"Télécharger dans",qrTitre:"Sur ton iPhone",qrTexte:"Scanne avec l'appareil photo : l'App Store s'ouvre sur Kursiko.",kursDit:"Kurs t'accompagne à chaque question",titreA:"Ton podium d'universités",titreB:"en Europe",sousTitre:"Un test qui se joue en 10 minutes, puis les formations classées pour toi, avec leurs dates limites.",cta:"Faire le test gratuit →",p1:"Gratuit",p2:"82 000+ formations",p3:"Toute l'Europe",iosSite:"Tu préfères le site ?",iosSiteLien:"Faire le test sur kursiko.com",android:"<b>L'app Android arrive bientôt.</b> En attendant, le test se fait ici, sur le site.",hReseaux:"Suis Kursiko",ici:"Tu y es",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, leur accord",ecolesLien:"Écoles : référencer votre formation"},
+    en:{appSur:"The iPhone app",appTitre:"Find your studies in Europe",appInfo:"Free · iPhone and iPad",storeHaut:"Download on the",qrTitre:"On your iPhone",qrTexte:"Scan with the camera: the App Store opens on Kursiko.",kursDit:"Kurs is with you at every question",titreA:"Your podium of universities",titreB:"in Europe",sousTitre:"A test you play in 10 minutes, then programmes ranked for you, with their deadlines.",cta:"Take the free test →",p1:"Free",p2:"82,000+ programmes",p3:"All of Europe",iosSite:"Prefer the website?",iosSiteLien:"Take the test on kursiko.com",android:"<b>The Android app is coming soon.</b> Meanwhile, take the test here on the website.",hReseaux:"Follow Kursiko",ici:"You are here",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, their consent",ecolesLien:"Schools: list your programme"},
+    de:{appSur:"Die iPhone-App",appTitre:"Finde dein Studium in Europa",appInfo:"Kostenlos · iPhone und iPad",storeHaut:"Laden im",qrTitre:"Auf deinem iPhone",qrTexte:"Mit der Kamera scannen: Der App Store öffnet sich bei Kursiko.",kursDit:"Kurs begleitet dich bei jeder Frage",titreA:"Dein Podium der Universitäten",titreB:"in Europa",sousTitre:"Ein Test, den du in 10 Minuten spielst, dann die Studiengänge für dich geordnet, mit ihren Fristen.",cta:"Kostenlosen Test machen →",p1:"Kostenlos",p2:"82.000+ Studiengänge",p3:"Ganz Europa",iosSite:"Lieber die Website?",iosSiteLien:"Test auf kursiko.com machen",android:"<b>Die Android-App kommt bald.</b> Bis dahin machst du den Test hier auf der Website.",hReseaux:"Folge Kursiko",ici:"Du bist hier",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
+    es:{appSur:"La app para iPhone",appTitre:"Tu carrera en Europa",appInfo:"Gratis · iPhone y iPad",storeHaut:"Descárgala en el",qrTitre:"En tu iPhone",qrTexte:"Escanea con la cámara: el App Store se abre en Kursiko.",kursDit:"Kurs te acompaña en cada pregunta",titreA:"Tu podio de universidades",titreB:"en Europa",sousTitre:"Un test que se juega en 10 minutos y luego las carreras ordenadas para ti, con sus fechas límite.",cta:"Hacer el test gratis →",p1:"Gratis",p2:"82 000+ carreras",p3:"Toda Europa",iosSite:"¿Prefieres la web?",iosSiteLien:"Hacer el test en kursiko.com",android:"<b>La app para Android llega pronto.</b> Mientras tanto, haz el test aquí, en la web.",hReseaux:"Sigue a Kursiko",ici:"Estás aquí",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"},
+    it:{appSur:"L'app per iPhone",appTitre:"Trova i tuoi studi in Europa",appInfo:"Gratis · iPhone e iPad",storeHaut:"Scarica su",qrTitre:"Sul tuo iPhone",qrTexte:"Inquadra con la fotocamera: l'App Store si apre su Kursiko.",kursDit:"Kurs ti accompagna a ogni domanda",titreA:"Il tuo podio di università",titreB:"in Europa",sousTitre:"Un test che si gioca in 10 minuti, poi i corsi ordinati per te, con le loro scadenze.",cta:"Fai il test gratis →",p1:"Gratis",p2:"82.000+ corsi",p3:"Tutta Europa",iosSite:"Preferisci il sito?",iosSiteLien:"Fai il test su kursiko.com",android:"<b>L'app Android arriva presto.</b> Nel frattempo fai il test qui, sul sito.",hReseaux:"Segui Kursiko",ici:"Sei qui",comment:"Come funziona",commentSub:"Il test, la classifica, le scadenze",pays:"Paesi",paysSub:"Candidatura, costi e calendario per paese",parents:"Per i genitori",parentsSub:"Costi, dati, il loro consenso",ecolesLien:"Scuole: pubblicate il vostro corso"},
+    pt:{appSur:"A app para iPhone",appTitre:"O teu curso na Europa",appInfo:"Grátis · iPhone e iPad",storeHaut:"Descarregar na",qrTitre:"No teu iPhone",qrTexte:"Digitaliza com a câmara: a App Store abre no Kursiko.",kursDit:"O Kurs acompanha-te em cada pergunta",titreA:"O teu pódio de universidades",titreB:"na Europa",sousTitre:"Um teste que se joga em 10 minutos e depois os cursos ordenados para ti, com os prazos.",cta:"Fazer o teste grátis →",p1:"Grátis",p2:"82 000+ cursos",p3:"Toda a Europa",iosSite:"Preferes o site?",iosSiteLien:"Fazer o teste em kursiko.com",android:"<b>A app Android chega em breve.</b> Entretanto, faz o teste aqui, no site.",hReseaux:"Segue a Kursiko",ici:"Estás aqui",comment:"Como funciona",commentSub:"O teste, a classificação, os prazos",pays:"Países",paysSub:"Candidatura, propinas e calendário por país",parents:"Para os pais",parentsSub:"Custo, dados, o seu consentimento",ecolesLien:"Escolas: publiquem o vosso curso"}
   };
   var RESEAUX=["instagram","tiktok","youtube"], from="";
   try{ from=(new URLSearchParams(location.search).get("from")||"").toLowerCase(); }catch(e){}
   if(RESEAUX.indexOf(from)<0){ from=""; }
 
-  // Langue : choix mémorisé, sinon la première langue du téléphone que la page connaît, sinon français.
-  // Pas de géolocalisation par IP : la page est statique et n'envoie l'adresse du visiteur à aucun service.
+  /* Langue : choix mémorisé, sinon la première langue du téléphone connue, sinon français. */
   var lang="";
   try{ lang=localStorage.getItem("kursiko-lang")||""; }catch(e){}
   if(!T[lang]){
@@ -220,34 +276,29 @@ main{display:flex;flex-direction:column;gap:28px}
     var prefs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||"fr"];
     for(var i=0;i<prefs.length;i++){ var c=String(prefs[i]||"").slice(0,2).toLowerCase(); if(T[c]){ lang=c; break; } }
   }
+  var choix=document.getElementById("langue");
   function appliquer(l){
-    var d=T[l]; document.documentElement.lang=l;
+    var d=T[l]; document.documentElement.lang=l; choix.value=l;
     document.querySelectorAll("[data-i]").forEach(function(el){ var k=el.getAttribute("data-i"); if(d[k]){ el.textContent=d[k]; } });
-    document.querySelectorAll(".langues button").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang")===l ? "true" : "false"); });
+    document.querySelectorAll("[data-i-html]").forEach(function(el){ var k=el.getAttribute("data-i-html"); if(d[k]){ el.innerHTML=d[k]; } });
+    document.querySelectorAll("[data-ecran]").forEach(function(img){ img.src="img/app/"+l+"-"+img.getAttribute("data-ecran")+".webp"; });
   }
 
-  // Le réseau d'où vient le visiteur passe en dernier, marqué « Vous y êtes »
+  /* Le réseau d'où vient le visiteur passe en dernier, marqué « Tu y es ». */
   if(from){
     var cur=document.querySelector('#reseaux [data-net="'+from+'"]');
     if(cur){ cur.querySelector(".rond").classList.add("est-ici"); cur.parentNode.appendChild(cur); }
   }
 
-  // Suivi : chaque lien vers le site porte la source
+  /* Suivi : chaque lien vers le site porte la source ; le lien App Store porte la campagne. */
   var src=from||"bio";
   document.querySelectorAll("a[data-track]").forEach(function(a){
     try{ var u=new URL(a.getAttribute("href")); u.searchParams.set("utm_source",src); u.searchParams.set("utm_medium","social"); u.searchParams.set("utm_campaign","liens"); a.setAttribute("href",u.toString()); }catch(e){}
   });
+  try{ var s=document.getElementById("store"), su=new URL(s.href); su.searchParams.set("ct","liens-"+src); s.href=su.toString(); }catch(e){}
 
-  document.querySelectorAll(".langues button").forEach(function(b){
-    b.addEventListener("click",function(){ var l=b.getAttribute("data-lang"); appliquer(l); try{ localStorage.setItem("kursiko-lang",l); }catch(e){} });
-  });
+  choix.addEventListener("change",function(){ var l=choix.value; if(T[l]){ appliquer(l); try{ localStorage.setItem("kursiko-lang",l); }catch(e){} } });
   appliquer(lang);
-
-  // Le bouton du bas apparaît quand celui du haut sort de l'écran
-  var dock=document.getElementById("dock"), cta=document.getElementById("cta");
-  if("IntersectionObserver" in window && dock && cta){
-    new IntersectionObserver(function(es){ dock.classList.toggle("off", es[0].isIntersecting || es[0].boundingClientRect.top>0); }).observe(cta);
-  }
 })();
 </script>
 </body>
