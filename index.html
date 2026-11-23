@@ -153,6 +153,31 @@ main>*{order:3}
 .pied p{margin:0}
 .pied a{color:var(--sarcelle);font-weight:700;text-underline-offset:3px}
 
+
+/* ORDINATEUR : grande bande au dégradé de l'app, l'app en avant (version 2) */
+.ordi-hero{display:none}
+.appareil-ordi .ordi-hero{display:block;position:relative;overflow:hidden;background:linear-gradient(225deg,var(--bleu),var(--violet));color:#fff;margin-bottom:28px}
+.appareil-ordi main .app,.appareil-ordi main .test{display:none}
+.ordi-hero::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 72% 55%,rgba(255,255,255,.06) 0 6deg,transparent 6deg 12deg)}
+.oh-in{position:relative;max-width:1200px;margin:0 auto;padding:56px 40px 64px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:40px;align-items:center}
+.oh-in .kurs{width:88px;height:88px;border-radius:20px;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+.oh-titre{margin:22px 0 0;font-size:clamp(44px,5vw,70px);line-height:1.02;font-weight:800;letter-spacing:-2px}
+.oh-titre em{font-style:normal;color:#FFD23F}
+.oh-sous{margin:14px 0 0;font-size:20px;font-weight:600;opacity:.92}
+.oh-qr{display:inline-flex;max-width:500px;align-items:center;gap:18px;margin-top:28px;background:#fff;color:var(--encre);border-radius:22px;padding:14px 22px 14px 14px;box-shadow:0 10px 30px rgba(27,46,75,.18)}
+.oh-qr img{width:128px;height:128px}
+.oh-qr b{display:block;font-size:18px}
+.oh-qr span{font-size:15px;color:var(--gris)}
+.oh-bas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:20px}
+.oh-bas .bouton-store{display:inline-flex;min-height:56px;padding:10px 24px}
+.oh-bas .note{color:#fff;text-align:left;font-size:16px}
+.oh-bas .note a{color:#FFD23F}
+.oh-tels{position:relative;height:500px}
+.oh-tels img{position:absolute;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.28);height:auto;aspect-ratio:1320/2868}
+.oh-tels .t1{width:190px;left:0;top:70px;transform:rotate(-10deg)}
+.oh-tels .t3{width:190px;right:0;top:70px;transform:rotate(10deg)}
+.oh-tels .t2{width:220px;left:150px;top:0;z-index:2}
+
 @media (min-width:900px){
   .col{max-width:560px}
   .appareil-ordi .ecrans img{width:112px}
@@ -172,6 +197,29 @@ main>*{order:3}
   </label>
 </header>
 
+
+<section class="ordi-hero" aria-labelledby="t-ordi">
+  <div class="oh-in">
+    <div>
+      <img class="kurs" src="img/kurs-app.webp" width="88" height="88" alt="">
+      <h1 class="oh-titre" id="t-ordi"><span data-i="ohA">Trouve</span> <em data-i="ohB">tes études</em> <span data-i="ohC">en Europe</span></h1>
+      <p class="oh-sous" data-i="ohSous">L'app gratuite sur iPhone et iPad</p>
+      <div class="oh-qr"><img src="img/qr-app.svg" width="128" height="128" alt=""><div><b data-i="qrTitre">Sur ton iPhone</b><span data-i="qrTexte">Scanne avec l'appareil photo : l'App Store s'ouvre sur Kursiko.</span></div></div>
+      <div class="oh-bas">
+        <a class="bouton bouton-store store-lien" href="https://apps.apple.com/app/kursiko/id6831558898" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.1 1.72-3.12 1.8-3.17-.98-1.43-2.5-1.63-3.05-1.65-1.3-.13-2.53.76-3.19.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.82-3.45 2.09-1.47 2.55-.38 6.33 1.06 8.4.7 1.01 1.54 2.15 2.63 2.11 1.06-.04 1.46-.68 2.73-.68 1.28 0 1.64.68 2.75.66 1.14-.02 1.86-1.03 2.55-2.05.8-1.17 1.13-2.31 1.15-2.37-.03-.01-2.21-.85-2.23-3.38ZM14.27 6.43c.58-.71.98-1.69.87-2.68-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.89 2.58.94.07 1.9-.47 2.48-1.16Z"/></svg>
+          <span class="deux"><small data-i="storeHaut">Télécharger dans</small><span data-i="storeBas">l'App Store</span></span></a>
+        <p class="note"><span data-i="ohPas">Pas d'iPhone ?</span> <a data-track href="https://kursiko.com/test" data-i="ohTest">Fais le test sur le site →</a></p>
+      </div>
+    </div>
+    <div class="oh-tels" aria-hidden="true">
+      <img class="t1" data-ecran="03" src="img/app/fr-03.webp" alt="">
+      <img class="t3" data-ecran="07" src="img/app/fr-07.webp" alt="">
+      <img class="t2" data-ecran="01" src="img/app/fr-01.webp" alt="">
+    </div>
+  </div>
+</section>
+
 <main class="col">
 
   <!-- L'APP : en premier sur iPhone et iPad -->
@@ -186,7 +234,7 @@ main>*{order:3}
     </div>
     <a class="bouton bouton-store" id="store" href="https://apps.apple.com/app/kursiko/id6831558898" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.1 1.72-3.12 1.8-3.17-.98-1.43-2.5-1.63-3.05-1.65-1.3-.13-2.53.76-3.19.76-.66 0-1.67-.74-2.75-.72-1.41.02-2.72.82-3.45 2.09-1.47 2.55-.38 6.33 1.06 8.4.7 1.01 1.54 2.15 2.63 2.11 1.06-.04 1.46-.68 2.73-.68 1.28 0 1.64.68 2.75.66 1.14-.02 1.86-1.03 2.55-2.05.8-1.17 1.13-2.31 1.15-2.37-.03-.01-2.21-.85-2.23-3.38ZM14.27 6.43c.58-.71.98-1.69.87-2.68-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.89 2.58.94.07 1.9-.47 2.48-1.16Z"/></svg>
-      <span class="deux"><small data-i="storeHaut">Télécharger dans</small><span>l'App Store</span></span>
+      <span class="deux"><small data-i="storeHaut">Télécharger dans</small><span data-i="storeBas">l'App Store</span></span>
     </a>
     <div class="qr">
       <img src="img/qr-app.svg" width="104" height="104" alt="">
@@ -257,12 +305,12 @@ main>*{order:3}
 <script>
 (function(){
   var T={
-    fr:{appSur:"L'app iPhone",appTitre:"Trouve tes études en Europe",appInfo:"Gratuite · iPhone et iPad",storeHaut:"Télécharger dans",qrTitre:"Sur ton iPhone",qrTexte:"Scanne avec l'appareil photo : l'App Store s'ouvre sur Kursiko.",kursDit:"Kurs t'accompagne à chaque question",titreA:"Ton podium d'universités",titreB:"en Europe",sousTitre:"Un test qui se joue en 10 minutes, puis les formations classées pour toi, avec leurs dates limites.",cta:"Faire le test gratuit →",p1:"Gratuit",p2:"82 000+ formations",p3:"Toute l'Europe",iosSite:"Tu préfères le site ?",iosSiteLien:"Faire le test sur kursiko.com",android:"<b>L'app Android arrive bientôt.</b> En attendant, le test se fait ici, sur le site.",hReseaux:"Suis Kursiko",ici:"Tu y es",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, leur accord",ecolesLien:"Écoles : référencer votre formation"},
-    en:{appSur:"The iPhone app",appTitre:"Find your studies in Europe",appInfo:"Free · iPhone and iPad",storeHaut:"Download on the",qrTitre:"On your iPhone",qrTexte:"Scan with the camera: the App Store opens on Kursiko.",kursDit:"Kurs is with you at every question",titreA:"Your podium of universities",titreB:"in Europe",sousTitre:"A test you play in 10 minutes, then programmes ranked for you, with their deadlines.",cta:"Take the free test →",p1:"Free",p2:"82,000+ programmes",p3:"All of Europe",iosSite:"Prefer the website?",iosSiteLien:"Take the test on kursiko.com",android:"<b>The Android app is coming soon.</b> Meanwhile, take the test here on the website.",hReseaux:"Follow Kursiko",ici:"You are here",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, their consent",ecolesLien:"Schools: list your programme"},
-    de:{appSur:"Die iPhone-App",appTitre:"Finde dein Studium in Europa",appInfo:"Kostenlos · iPhone und iPad",storeHaut:"Laden im",qrTitre:"Auf deinem iPhone",qrTexte:"Mit der Kamera scannen: Der App Store öffnet sich bei Kursiko.",kursDit:"Kurs begleitet dich bei jeder Frage",titreA:"Dein Podium der Universitäten",titreB:"in Europa",sousTitre:"Ein Test, den du in 10 Minuten spielst, dann die Studiengänge für dich geordnet, mit ihren Fristen.",cta:"Kostenlosen Test machen →",p1:"Kostenlos",p2:"82.000+ Studiengänge",p3:"Ganz Europa",iosSite:"Lieber die Website?",iosSiteLien:"Test auf kursiko.com machen",android:"<b>Die Android-App kommt bald.</b> Bis dahin machst du den Test hier auf der Website.",hReseaux:"Folge Kursiko",ici:"Du bist hier",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
-    es:{appSur:"La app para iPhone",appTitre:"Tu carrera en Europa",appInfo:"Gratis · iPhone y iPad",storeHaut:"Descárgala en el",qrTitre:"En tu iPhone",qrTexte:"Escanea con la cámara: el App Store se abre en Kursiko.",kursDit:"Kurs te acompaña en cada pregunta",titreA:"Tu podio de universidades",titreB:"en Europa",sousTitre:"Un test que se juega en 10 minutos y luego las carreras ordenadas para ti, con sus fechas límite.",cta:"Hacer el test gratis →",p1:"Gratis",p2:"82 000+ carreras",p3:"Toda Europa",iosSite:"¿Prefieres la web?",iosSiteLien:"Hacer el test en kursiko.com",android:"<b>La app para Android llega pronto.</b> Mientras tanto, haz el test aquí, en la web.",hReseaux:"Sigue a Kursiko",ici:"Estás aquí",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"},
-    it:{appSur:"L'app per iPhone",appTitre:"Trova i tuoi studi in Europa",appInfo:"Gratis · iPhone e iPad",storeHaut:"Scarica su",qrTitre:"Sul tuo iPhone",qrTexte:"Inquadra con la fotocamera: l'App Store si apre su Kursiko.",kursDit:"Kurs ti accompagna a ogni domanda",titreA:"Il tuo podio di università",titreB:"in Europa",sousTitre:"Un test che si gioca in 10 minuti, poi i corsi ordinati per te, con le loro scadenze.",cta:"Fai il test gratis →",p1:"Gratis",p2:"82.000+ corsi",p3:"Tutta Europa",iosSite:"Preferisci il sito?",iosSiteLien:"Fai il test su kursiko.com",android:"<b>L'app Android arriva presto.</b> Nel frattempo fai il test qui, sul sito.",hReseaux:"Segui Kursiko",ici:"Sei qui",comment:"Come funziona",commentSub:"Il test, la classifica, le scadenze",pays:"Paesi",paysSub:"Candidatura, costi e calendario per paese",parents:"Per i genitori",parentsSub:"Costi, dati, il loro consenso",ecolesLien:"Scuole: pubblicate il vostro corso"},
-    pt:{appSur:"A app para iPhone",appTitre:"O teu curso na Europa",appInfo:"Grátis · iPhone e iPad",storeHaut:"Descarregar na",qrTitre:"No teu iPhone",qrTexte:"Digitaliza com a câmara: a App Store abre no Kursiko.",kursDit:"O Kurs acompanha-te em cada pergunta",titreA:"O teu pódio de universidades",titreB:"na Europa",sousTitre:"Um teste que se joga em 10 minutos e depois os cursos ordenados para ti, com os prazos.",cta:"Fazer o teste grátis →",p1:"Grátis",p2:"82 000+ cursos",p3:"Toda a Europa",iosSite:"Preferes o site?",iosSiteLien:"Fazer o teste em kursiko.com",android:"<b>A app Android chega em breve.</b> Entretanto, faz o teste aqui, no site.",hReseaux:"Segue a Kursiko",ici:"Estás aqui",comment:"Como funciona",commentSub:"O teste, a classificação, os prazos",pays:"Países",paysSub:"Candidatura, propinas e calendário por país",parents:"Para os pais",parentsSub:"Custo, dados, o seu consentimento",ecolesLien:"Escolas: publiquem o vosso curso"}
+    fr:{storeBas:"l'App Store",ohA:"Trouve",ohB:"tes études",ohC:"en Europe",ohSous:"L'app gratuite sur iPhone et iPad",ohPas:"Pas d'iPhone ?",ohTest:"Fais le test sur le site →",appSur:"L'app iPhone",appTitre:"Trouve tes études en Europe",appInfo:"Gratuite · iPhone et iPad",storeHaut:"Télécharger dans",qrTitre:"Sur ton iPhone",qrTexte:"Scanne avec l'appareil photo : l'App Store s'ouvre sur Kursiko.",kursDit:"Kurs t'accompagne à chaque question",titreA:"Ton podium d'universités",titreB:"en Europe",sousTitre:"Un test qui se joue en 10 minutes, puis les formations classées pour toi, avec leurs dates limites.",cta:"Faire le test gratuit →",p1:"Gratuit",p2:"82 000+ formations",p3:"Toute l'Europe",iosSite:"Tu préfères le site ?",iosSiteLien:"Faire le test sur kursiko.com",android:"<b>L'app Android arrive bientôt.</b> En attendant, le test se fait ici, sur le site.",hReseaux:"Suis Kursiko",ici:"Tu y es",comment:"Comment ça marche",commentSub:"Le test, le classement, les dates limites",pays:"Pays",paysSub:"Candidature, frais et calendrier par pays",parents:"Pour les parents",parentsSub:"Le coût, les données, leur accord",ecolesLien:"Écoles : référencer votre formation"},
+    en:{storeBas:"App Store",ohA:"Find",ohB:"your studies",ohC:"in Europe",ohSous:"The free app for iPhone and iPad",ohPas:"No iPhone?",ohTest:"Take the test on the website →",appSur:"The iPhone app",appTitre:"Find your studies in Europe",appInfo:"Free · iPhone and iPad",storeHaut:"Download on the",qrTitre:"On your iPhone",qrTexte:"Scan with the camera: the App Store opens on Kursiko.",kursDit:"Kurs is with you at every question",titreA:"Your podium of universities",titreB:"in Europe",sousTitre:"A test you play in 10 minutes, then programmes ranked for you, with their deadlines.",cta:"Take the free test →",p1:"Free",p2:"82,000+ programmes",p3:"All of Europe",iosSite:"Prefer the website?",iosSiteLien:"Take the test on kursiko.com",android:"<b>The Android app is coming soon.</b> Meanwhile, take the test here on the website.",hReseaux:"Follow Kursiko",ici:"You are here",comment:"How it works",commentSub:"The test, the ranking, the deadlines",pays:"Countries",paysSub:"Applications, fees and calendar by country",parents:"For parents",parentsSub:"Cost, data, their consent",ecolesLien:"Schools: list your programme"},
+    de:{storeBas:"App Store",ohA:"Finde",ohB:"dein Studium",ohC:"in Europa",ohSous:"Die kostenlose App für iPhone und iPad",ohPas:"Kein iPhone?",ohTest:"Mach den Test auf der Website →",appSur:"Die iPhone-App",appTitre:"Finde dein Studium in Europa",appInfo:"Kostenlos · iPhone und iPad",storeHaut:"Laden im",qrTitre:"Auf deinem iPhone",qrTexte:"Mit der Kamera scannen: Der App Store öffnet sich bei Kursiko.",kursDit:"Kurs begleitet dich bei jeder Frage",titreA:"Dein Podium der Universitäten",titreB:"in Europa",sousTitre:"Ein Test, den du in 10 Minuten spielst, dann die Studiengänge für dich geordnet, mit ihren Fristen.",cta:"Kostenlosen Test machen →",p1:"Kostenlos",p2:"82.000+ Studiengänge",p3:"Ganz Europa",iosSite:"Lieber die Website?",iosSiteLien:"Test auf kursiko.com machen",android:"<b>Die Android-App kommt bald.</b> Bis dahin machst du den Test hier auf der Website.",hReseaux:"Folge Kursiko",ici:"Du bist hier",comment:"So funktioniert's",commentSub:"Der Test, die Rangfolge, die Fristen",pays:"Länder",paysSub:"Bewerbung, Gebühren und Termine nach Land",parents:"Für Eltern",parentsSub:"Kosten, Daten, ihre Zustimmung",ecolesLien:"Hochschulen: Studiengang eintragen"},
+    es:{storeBas:"App Store",ohA:"Tu",ohB:"carrera",ohC:"en Europa",ohSous:"La app gratis para iPhone y iPad",ohPas:"¿No tienes iPhone?",ohTest:"Haz el test en la web →",appSur:"La app para iPhone",appTitre:"Tu carrera en Europa",appInfo:"Gratis · iPhone y iPad",storeHaut:"Descárgala en el",qrTitre:"En tu iPhone",qrTexte:"Escanea con la cámara: el App Store se abre en Kursiko.",kursDit:"Kurs te acompaña en cada pregunta",titreA:"Tu podio de universidades",titreB:"en Europa",sousTitre:"Un test que se juega en 10 minutos y luego las carreras ordenadas para ti, con sus fechas límite.",cta:"Hacer el test gratis →",p1:"Gratis",p2:"82 000+ carreras",p3:"Toda Europa",iosSite:"¿Prefieres la web?",iosSiteLien:"Hacer el test en kursiko.com",android:"<b>La app para Android llega pronto.</b> Mientras tanto, haz el test aquí, en la web.",hReseaux:"Sigue a Kursiko",ici:"Estás aquí",comment:"Cómo funciona",commentSub:"El test, la clasificación, las fechas límite",pays:"Países",paysSub:"Solicitud, tasas y calendario por país",parents:"Para padres",parentsSub:"Coste, datos, su consentimiento",ecolesLien:"Escuelas: publiquen su formación"},
+    it:{storeBas:"App Store",ohA:"Trova",ohB:"i tuoi studi",ohC:"in Europa",ohSous:"L'app gratuita per iPhone e iPad",ohPas:"Niente iPhone?",ohTest:"Fai il test sul sito →",appSur:"L'app per iPhone",appTitre:"Trova i tuoi studi in Europa",appInfo:"Gratis · iPhone e iPad",storeHaut:"Scarica su",qrTitre:"Sul tuo iPhone",qrTexte:"Inquadra con la fotocamera: l'App Store si apre su Kursiko.",kursDit:"Kurs ti accompagna a ogni domanda",titreA:"Il tuo podio di università",titreB:"in Europa",sousTitre:"Un test che si gioca in 10 minuti, poi i corsi ordinati per te, con le loro scadenze.",cta:"Fai il test gratis →",p1:"Gratis",p2:"82.000+ corsi",p3:"Tutta Europa",iosSite:"Preferisci il sito?",iosSiteLien:"Fai il test su kursiko.com",android:"<b>L'app Android arriva presto.</b> Nel frattempo fai il test qui, sul sito.",hReseaux:"Segui Kursiko",ici:"Sei qui",comment:"Come funziona",commentSub:"Il test, la classifica, le scadenze",pays:"Paesi",paysSub:"Candidatura, costi e calendario per paese",parents:"Per i genitori",parentsSub:"Costi, dati, il loro consenso",ecolesLien:"Scuole: pubblicate il vostro corso"},
+    pt:{storeBas:"App Store",ohA:"O teu",ohB:"curso",ohC:"na Europa",ohSous:"A app grátis para iPhone e iPad",ohPas:"Não tens iPhone?",ohTest:"Faz o teste no site →",appSur:"A app para iPhone",appTitre:"O teu curso na Europa",appInfo:"Grátis · iPhone e iPad",storeHaut:"Descarregar na",qrTitre:"No teu iPhone",qrTexte:"Digitaliza com a câmara: a App Store abre no Kursiko.",kursDit:"O Kurs acompanha-te em cada pergunta",titreA:"O teu pódio de universidades",titreB:"na Europa",sousTitre:"Um teste que se joga em 10 minutos e depois os cursos ordenados para ti, com os prazos.",cta:"Fazer o teste grátis →",p1:"Grátis",p2:"82 000+ cursos",p3:"Toda a Europa",iosSite:"Preferes o site?",iosSiteLien:"Fazer o teste em kursiko.com",android:"<b>A app Android chega em breve.</b> Entretanto, faz o teste aqui, no site.",hReseaux:"Segue a Kursiko",ici:"Estás aqui",comment:"Como funciona",commentSub:"O teste, a classificação, os prazos",pays:"Países",paysSub:"Candidatura, propinas e calendário por país",parents:"Para os pais",parentsSub:"Custo, dados, o seu consentimento",ecolesLien:"Escolas: publiquem o vosso curso"}
   };
   var RESEAUX=["instagram","tiktok","youtube"], from="";
   try{ from=(new URLSearchParams(location.search).get("from")||"").toLowerCase(); }catch(e){}
@@ -295,7 +343,7 @@ main>*{order:3}
   document.querySelectorAll("a[data-track]").forEach(function(a){
     try{ var u=new URL(a.getAttribute("href")); u.searchParams.set("utm_source",src); u.searchParams.set("utm_medium","social"); u.searchParams.set("utm_campaign","liens"); a.setAttribute("href",u.toString()); }catch(e){}
   });
-  try{ var s=document.getElementById("store"), su=new URL(s.href); su.searchParams.set("ct","liens-"+src); s.href=su.toString(); }catch(e){}
+  document.querySelectorAll("#store,.store-lien").forEach(function(s){ try{ var su=new URL(s.href); su.searchParams.set("ct","liens-"+src); s.href=su.toString(); }catch(e){} });
 
   choix.addEventListener("change",function(){ var l=choix.value; if(T[l]){ appliquer(l); try{ localStorage.setItem("kursiko-lang",l); }catch(e){} } });
   appliquer(lang);
