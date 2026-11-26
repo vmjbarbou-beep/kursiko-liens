@@ -353,7 +353,9 @@ main>*{order:3}
   };
   var RESEAUX=["instagram","tiktok","youtube"], from="";
   try{ from=(new URLSearchParams(location.search).get("from")||"").toLowerCase(); }catch(e){}
-  if(RESEAUX.indexOf(from)<0){ from=""; }
+  /* Salons : from=salon-<mot> (QR codes), lettres, chiffres et tirets seulement. */
+  var salon=/^salon-[a-z0-9-]{1,30}$/.test(from);
+  if(!salon&&RESEAUX.indexOf(from)<0){ from=""; }
 
   /* Langue : choix mémorisé, sinon la première langue du téléphone connue, sinon français. */
   var lang="";
@@ -379,10 +381,11 @@ main>*{order:3}
 
   /* Suivi : chaque lien vers le site porte la source ; le lien App Store porte la campagne. */
   var src=from||"bio";
+  var utmSource=salon?"salon":src, utmMedium=salon?"qr":"social", utmCampagne=salon?from:"liens", ct=salon?from:"liens-"+src;
   document.querySelectorAll("a[data-track]").forEach(function(a){
-    try{ var u=new URL(a.getAttribute("href")); u.searchParams.set("utm_source",src); u.searchParams.set("utm_medium","social"); u.searchParams.set("utm_campaign","liens"); a.setAttribute("href",u.toString()); }catch(e){}
+    try{ var u=new URL(a.getAttribute("href")); u.searchParams.set("utm_source",utmSource); u.searchParams.set("utm_medium",utmMedium); u.searchParams.set("utm_campaign",utmCampagne); a.setAttribute("href",u.toString()); }catch(e){}
   });
-  document.querySelectorAll("#store,.store-lien").forEach(function(s){ try{ var su=new URL(s.href); su.searchParams.set("ct","liens-"+src); s.href=su.toString(); }catch(e){} });
+  document.querySelectorAll("#store,.store-lien").forEach(function(s){ try{ var su=new URL(s.href); su.searchParams.set("ct",ct); s.href=su.toString(); }catch(e){} });
 
   choix.addEventListener("change",function(){ var l=choix.value; if(T[l]){ appliquer(l); try{ localStorage.setItem("kursiko-lang",l); }catch(e){} } });
   appliquer(lang);
